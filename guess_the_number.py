@@ -17,11 +17,7 @@ attempts_level_hard = 5
 flag = True
 
 while flag:
-
-    if difficulty_level == 'easy':
-        if attempts_level_easy < 1:
-            print(f"No more guessing. Correct answer was {random_number}")
-            break
+    def easy_level():
         player_type = int(input("Make a guess: "))
         if player_type == random_number:
             print(f"You got it! The answer was {random_number}.")
@@ -35,11 +31,9 @@ while flag:
             print("Too low.")
             print(f"You have {attempts_level_easy} attempts remaining to guess the number.")
 
-    elif difficulty_level == 'hard':
-        if attempts_level_hard < 1:
-            print(f"No more guessing. Correct answer was {random_number}.")
-            break
-        player_type = int(input("Make a guess: "))
+
+    def hard_level():
+    player_type = int(input("Make a guess: "))
         if player_type == random_number:
             print(f"You got it! The answer was {random_number}")
             break
@@ -51,3 +45,18 @@ while flag:
             attempts_level_hard -= 1
             print("Too low.")
             print(f"You have {attempts_level_hard} attempts remaining to guess the number.")
+
+
+
+    if difficulty_level == 'easy':
+        if attempts_level_easy < 1:
+            print(f"No more guessing. Correct answer was {random_number}")
+            break
+        easy_level()
+
+
+    if difficulty_level == 'hard':
+        if attempts_level_hard < 1:
+            print(f"No more guessing. Correct answer was {random_number}.")
+            break
+        hard_level()
